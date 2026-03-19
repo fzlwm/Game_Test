@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>抽卡系统测试用例(30条)</title>
+    <style>body { margin: 0; }
+        /* 简洁、类似Excel的样式 */
+        body {
+            font-family: 'Calibri', 'Segoe UI', 'Arial', sans-serif;
+            background: #f0f2f5;
+            margin: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .workbook {
+            width: 100%;
+            max-width: 1440px;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            border-radius: 4px;
+            padding: 16px 12px 20px 12px;
+        }
+        .sheet-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            padding: 0 6px;
+        }
+        .sheet-name {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #1e3c5c;
+            border-bottom: 2px solid #4c9be0;
+            padding-bottom: 4px;
+        }
+        .export-btn {
+            background: #217346;
+            color: white;
+            border: none;
+            padding: 8px 22px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,80,40,0.3);
+            transition: 0.1s;
+            border: 1px solid #1a5f38;
+        }
+        .export-btn:hover {
+            background: #1a5f38;
+        }
+        .export-btn:active {
+            background: #0f4a2b;
+            transform: translateY(1px);
+            box-shadow: none;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            border: 1px solid #a7b6c7;
+            background: white;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            min-width: 1300px;
+            table-layout: auto;
+            white-space: normal;
+        }
+        th {
+            background: #3f6b9c;
+            color: white;
+            font-weight: 600;
+            padding: 8px 8px;
+            text-align: left;
+            border: 1px solid #2b4f78;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        td {
+            border: 1px solid #9aaec2;
+            padding: 8px 8px;
+            vertical-align: top;
+            background-color: white;
+            line-height: 1.4;
+            word-break: break-word;
+        }
+        tr:nth-child(even) td {
+            background-color: #f8fafc;
+        }
+        tr:hover td {
+            background-color: #e3f0ff;
+        }
+        /* 对长文本列适当限制宽度，更接近excel阅读习惯 */
+        td:nth-child(4), td:nth-child(5), td:nth-child(6) {
+            max-width: 280px;
+        }
+        /* 空单元格显示占位符（类似excel的空单元格） */
+        td:empty::before {
+            content: "";
+        }
+        /* 用例编号加粗 */
+        td:first-child {
+            font-weight: 500;
+            color: #0a2540;
+            font-family: Consolas, monospace;
+        }
+        footer {
+            margin-top: 14px;
+            font-size: 0.8rem;
+            color: #446688;
+            padding-left: 8px;
+        }
+    </style>
+</head>
+<body style="background: white; padding: 20px; font-family: Calibri, Arial, sans-serif;">
+    <table id="testCaseTable">
+            <thead>
+                <tr>
+                    <th>用例编号</th>
+                    <th>测试模块</th>
+                    <th>测试标题</th>
+                    <th>前置条件</th>
+                    <th>测试步骤</th>
+                    <th>预期结果</th>
+                    <th>实际结果</th>
+                    <th>状态</th>
+                    <th>备注</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"><tr><td>TC-DRW-001</td><td>抽卡系统</td><td>单抽一次，验证星琼扣除与物品获得</td><td>账号拥有160星琼，位于抽卡界面，卡池为"限定角色池"</td><td>1. 点击单抽一次按钮<br>2. 观察星琼数量变化<br>3. 查看获得的物品<br>4. 查看抽卡历史记录</td><td>1. 扣除160星琼<br>2. 获得一个随机物品（角色/光锥）<br>3. 抽卡历史中新增一条记录</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-002</td><td>抽卡系统</td><td>十连抽，验证星琼扣除与物品获得</td><td>账号拥有1600星琼，位于抽卡界面，卡池为"限定角色池"</td><td>1. 点击十连抽按钮<br>2. 观察星琼数量变化<br>3. 查看获得的物品<br>4. 查看抽卡历史记录</td><td>1. 扣除1600星琼<br>2. 获得10个随机物品<br>3. 至少包含1个4星或以上物品<br>4. 抽卡历史中新增10条记录</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-003</td><td>抽卡系统</td><td>保底机制验证</td><td>账号拥有足够星琼，位于抽卡界面，卡池为"限定角色池"，已连续9次未获得5星物品</td><td>1. 点击单抽一次按钮<br>2. 观察抽卡结果<br>3. 查看保底计数</td><td>1. 获得5星物品<br>2. 保底计数重置为0</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-004</td><td>抽卡系统</td><td>资源不足时的提示</td><td>账号星琼数量为0，位于抽卡界面</td><td>1. 点击单抽一次按钮<br>2. 观察系统提示</td><td>1. 显示"星琼不足"提示<br>2. 无法进行抽卡操作</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-005</td><td>抽卡系统</td><td>资源不足时的导航</td><td>账号星琼数量为0，位于抽卡界面</td><td>1. 点击单抽一次按钮<br>2. 点击提示中的"获取星琼"按钮<br>3. 观察跳转结果</td><td>1. 成功跳转到星琼获取界面<br>2. 界面显示星琼获取途径</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-006</td><td>抽卡系统</td><td>背包已满时的处理</td><td>账号拥有足够星琼，背包已满，位于抽卡界面</td><td>1. 点击单抽一次按钮<br>2. 观察系统提示<br>3. 查看背包状态</td><td>1. 显示"背包已满"提示<br>2. 抽卡操作被阻止<br>3. 提示玩家清理背包</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-007</td><td>抽卡系统</td><td>新角色UP池概率验证</td><td>账号拥有足够星琼，位于"新角色UP池"界面</td><td>1. 进行多次抽卡（建议50次以上）<br>2. 统计获得的5星物品<br>3. 计算新角色出现概率</td><td>1. 5星物品中新角色的概率约为50%</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-008</td><td>抽卡系统</td><td>抽卡记录查看功能</td><td>已进行过抽卡操作，位于抽卡界面</td><td>1. 点击抽卡记录按钮<br>2. 查看抽卡历史<br>3. 测试记录筛选功能</td><td>1. 抽卡记录正确显示<br>2. 包含抽卡时间、物品名称、稀有度等信息<br>3. 筛选功能正常工作</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-009</td><td>抽卡系统</td><td>网络异常时的抽卡处理</td><td>账号拥有足够星琼，位于抽卡界面，网络连接正常</td><td>1. 点击抽卡按钮<br>2. 模拟网络中断<br>3. 恢复网络连接<br>4. 查看抽卡结果</td><td>1. 网络恢复后能正确显示抽卡结果<br>2. 不会重复消耗星琼<br>3. 获得的物品正确发放</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-010</td><td>抽卡系统</td><td>不同卡池切换</td><td>位于抽卡界面</td><td>1. 切换到"常驻池"<br>2. 切换到"武器池"<br>3. 切换到"限定角色池"</td><td>1. 卡池信息正确显示<br>2. 保底计数按卡池独立计算</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-011</td><td>抽卡系统</td><td>抽卡动画性能</td><td>位于抽卡界面，设备为最低配置</td><td>1. 进行多次抽卡<br>2. 观察抽卡动画的流畅度</td><td>1. 抽卡动画流畅，无卡顿<br>2. 动画播放时间≤3秒（单抽）</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-012</td><td>抽卡系统</td><td>星轨专票抽卡</td><td>账号拥有星轨专票，位于抽卡界面</td><td>1. 选择使用星轨专票抽卡<br>2. 点击单抽一次按钮<br>3. 查看星轨专票数量变化</td><td>1. 扣除1张星轨专票<br>2. 获得一个随机物品<br>3. 抽卡历史中新增一条记录</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-013</td><td>抽卡系统</td><td>星轨专票不足时的提示</td><td>账号星轨专票数量为0，位于抽卡界面</td><td>1. 选择使用星轨专票抽卡<br>2. 点击单抽一次按钮<br>3. 观察系统提示</td><td>1. 显示"星轨专票不足"提示<br>2. 无法进行抽卡操作</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-014</td><td>抽卡系统</td><td>混合资源抽卡</td><td>账号拥有5张星轨专票和800星琼，位于抽卡界面</td><td>1. 选择使用星轨专票抽卡<br>2. 进行5次单抽<br>3. 再次点击单抽按钮<br>4. 观察系统提示</td><td>1. 前5次使用星轨专票<br>2. 第6次提示星轨专票不足<br>3. 询问是否使用星琼继续</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-015</td><td>抽卡系统</td><td>抽卡结果分享功能</td><td>账号拥有足够星琼，位于抽卡界面</td><td>1. 进行一次抽卡<br>2. 点击分享按钮<br>3. 选择分享平台<br>4. 观察分享结果</td><td>1. 成功生成分享内容<br>2. 包含抽卡结果信息<br>3. 分享到选定平台</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-016</td><td>抽卡系统</td><td>抽卡音效开关</td><td>位于抽卡界面，游戏音效开启</td><td>1. 进行一次抽卡<br>2. 关闭游戏音效<br>3. 再次进行抽卡<br>4. 观察音效播放情况</td><td>1. 第一次抽卡有音效<br>2. 第二次抽卡无音效<br>3. 音效开关状态正确保存</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-017</td><td>抽卡系统</td><td>批量抽卡确认</td><td>账号拥有足够星琼，位于抽卡界面</td><td>1. 点击十连抽按钮<br>2. 观察确认弹窗<br>3. 点击取消按钮<br>4. 观察抽卡状态</td><td>1. 弹出抽卡确认弹窗<br>2. 点击取消后不进行抽卡<br>3. 星琼数量不变</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-018</td><td>抽卡系统</td><td>抽卡结果预览</td><td>位于抽卡界面</td><td>1. 点击卡池信息按钮<br>2. 查看抽卡概率和物品列表<br>3. 查看保底规则</td><td>1. 正确显示抽卡概率<br>2. 显示可获得的物品列表<br>3. 显示保底机制说明</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-019</td><td>抽卡系统</td><td>限时卡池过期处理</td><td>账号拥有足够星琼，位于已过期的限时卡池界面</td><td>1. 尝试进行抽卡<br>2. 观察系统提示<br>3. 查看卡池状态</td><td>1. 显示"卡池已过期"提示<br>2. 无法进行抽卡操作<br>3. 界面显示卡池过期信息</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-020</td><td>抽卡系统</td><td>抽卡次数限制</td><td>账号达到每日抽卡次数上限，位于抽卡界面</td><td>1. 尝试进行抽卡<br>2. 观察系统提示<br>3. 查看剩余次数</td><td>1. 显示"今日抽卡次数已达上限"提示<br>2. 无法进行抽卡操作<br>3. 显示剩余重置时间</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-021</td><td>抽卡系统</td><td>角色重复获得处理</td><td>账号拥有足够星琼，已拥有目标角色，位于限定角色池界面</td><td>1. 进行抽卡获得已拥有的角色<br>2. 观察系统提示<br>3. 查看获得的奖励</td><td>1. 显示"获得重复角色"提示<br>2. 自动转换为对应数量的角色碎片<br>3. 碎片正确发放到背包</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-022</td><td>抽卡系统</td><td>光锥重复获得处理</td><td>账号拥有足够星琼，已拥有目标光锥，位于武器池界面</td><td>1. 进行抽卡获得已拥有的光锥<br>2. 观察系统提示<br>3. 查看获得的奖励</td><td>1. 显示"获得重复光锥"提示<br>2. 自动转换为对应数量的光锥经验<br>3. 经验正确发放到背包</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-023</td><td>抽卡系统</td><td>抽卡过程中游戏崩溃</td><td>账号拥有足够星琼，位于抽卡界面</td><td>1. 点击抽卡按钮<br>2. 强制关闭游戏<br>3. 重新打开游戏<br>4. 查看抽卡结果和资源状态</td><td>1. 游戏重新启动后显示抽卡结果<br>2. 资源消耗正确<br>3. 获得的物品正确发放</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-024</td><td>抽卡系统</td><td>多设备同步抽卡</td><td>账号在两台设备登录，拥有足够星琼</td><td>1. 在设备A进行抽卡<br>2. 在设备B查看抽卡记录<br>3. 验证数据同步情况</td><td>1. 设备B能看到设备A的抽卡记录<br>2. 资源消耗在两台设备上一致<br>3. 获得的物品在两台设备上一致</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-025</td><td>抽卡系统</td><td>UP池概率边界测试</td><td>账号拥有足够星琼，位于"新角色UP池"界面，已连续89次未获得UP角色</td><td>1. 进行第90次抽卡<br>2. 观察抽卡结果<br>3. 查看保底计数</td><td>1. 必定获得UP角色<br>2. 保底计数重置为0<br>3. 系统显示保底触发提示</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-026</td><td>抽卡系统</td><td>抽卡界面响应时间</td><td>位于抽卡界面，网络环境正常</td><td>1. 点击卡池切换按钮<br>2. 点击抽卡按钮<br>3. 记录界面响应时间</td><td>1. 卡池切换响应时间≤1秒<br>2. 抽卡按钮响应时间≤0.5秒<br>3. 界面操作流畅无卡顿</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-027</td><td>抽卡系统</td><td>抽卡结果动画跳过</td><td>位于抽卡界面，拥有足够星琼</td><td>1. 进行一次抽卡<br>2. 点击跳过按钮<br>3. 观察抽卡结果显示</td><td>1. 动画被成功跳过<br>2. 直接显示抽卡结果<br>3. 获得的物品正确发放</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-028</td><td>抽卡系统</td><td>抽卡统计功能</td><td>已进行多次抽卡，位于抽卡界面</td><td>1. 进入抽卡统计界面<br>2. 查看抽卡次数统计<br>3. 查看获得物品统计</td><td>1. 正确显示总抽卡次数<br>2. 正确显示各稀有度物品数量<br>3. 统计数据与实际一致</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-029</td><td>抽卡系统</td><td>抽卡活动奖励</td><td>账号在抽卡活动期间，拥有足够星琼</td><td>1. 进行指定次数的抽卡<br>2. 查看活动奖励领取界面<br>3. 领取活动奖励</td><td>1. 达到条件后显示奖励领取提示<br>2. 成功领取活动奖励<br>3. 奖励正确发放到背包</td><td></td><td></td><td></td></tr><tr><td>TC-DRW-030</td><td>抽卡系统</td><td>跨版本抽卡数据保留</td><td>账号在版本更新前进行抽卡，版本更新后登录</td><td>1. 版本更新前进行抽卡<br>2. 记录抽卡次数和保底计数<br>3. 版本更新后登录游戏<br>4. 查看抽卡数据</td><td>1. 抽卡次数正确保留<br>2. 保底计数正确保留<br>3. 抽卡记录正确显示</td><td></td><td></td><td></td></tr></tbody>
+        </table>
+</body>
+</html>

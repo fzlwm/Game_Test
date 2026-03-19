@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>李信测试用例导出</title><style>body { margin: 0; }
+        /* 干净、类似Excel的样式 */
+        body {
+            font-family: 'Calibri', 'Segoe UI', 'Arial', sans-serif;
+            background: #eef1f5;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .spreadsheet {
+            width: 100%;
+            max-width: 1480px;
+            background: white;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+            border-radius: 4px;
+            padding: 16px 12px 20px 12px;
+        }
+        .sheet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            padding: 0 4px;
+        }
+        .sheet-title {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #1e3c5c;
+            border-bottom: 2px solid #3a70b0;
+            padding-bottom: 4px;
+        }
+        .export-btn {
+            background: #1e6f3f;
+            color: white;
+            border: none;
+            padding: 8px 26px;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,80,40,0.3);
+            border: 1px solid #19633a;
+        }
+        .export-btn:hover {
+            background: #19633a;
+        }
+        .export-btn:active {
+            background: #0f4a2b;
+            transform: translateY(1px);
+            box-shadow: none;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            border: 1px solid #9bb5d4;
+            background: white;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            min-width: 1400px;
+            table-layout: auto;
+        }
+        th {
+            background: #2f5597;
+            color: white;
+            font-weight: 600;
+            padding: 8px 8px;
+            text-align: left;
+            border: 1px solid #1f3f6d;
+            white-space: nowrap;
+        }
+        td {
+            border: 1px solid #8ea9c9;
+            padding: 8px 8px;
+            vertical-align: top;
+            background-color: white;
+            line-height: 1.4;
+            word-break: break-word;
+        }
+        tr:nth-child(even) td {
+            background-color: #f8fafd;
+        }
+        tr:hover td {
+            background-color: #e1ecfe;
+        }
+        td:first-child {
+            font-weight: 500;
+            color: #10355e;
+            font-family: 'Consolas', monospace;
+        }
+        /* 长文本列宽度提示 */
+        td:nth-child(4), td:nth-child(5), td:nth-child(6) {
+            max-width: 300px;
+        }
+        footer {
+            margin-top: 12px;
+            font-size: 0.8rem;
+            color: #3d5f8a;
+            padding-left: 8px;
+        }
+    </style></head>
+<body style="background:white;padding:20px;"><table id="testTable">
+            <thead>
+                <tr>
+                    <th>用例编号</th>
+                    <th>测试模块</th>
+                    <th>测试标题</th>
+                    <th>前置条件</th>
+                    <th>测试步骤</th>
+                    <th>预期结果</th>
+                    <th>实际结果</th>
+                    <th>状态</th>
+                    <th>备注</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"><tr><td>LX-FUNC-001</td><td>光信形态</td><td>光信形态下强化普攻的刷新机制验证</td><td>1. 李信达到4级并切换为光信形态<br>2. 进入训练营，无冷却缩减装备</td><td>1. 使用二技能命中敌方人偶<br>2. 立即观察所有技能冷却时间<br>3. 重复3次记录冷却缩减情况</td><td>1. 强化普攻或技能命中敌人后，所有技能冷却减少1秒<br>2. 多个目标命中时，冷却缩减不叠加</td><td></td><td></td><td></td></tr><tr><td>LX-FUNC-002</td><td>光信形态</td><td>光信一技能蓄力霸体与免伤效果验证</td><td>1. 李信光信形态<br>2. 敌方有控制技能英雄（如妲己）</td><td>1. 开始蓄力一技能<br>2. 在蓄力过程中让敌方释放控制技能<br>3. 记录是否被控制<br>4. 观察受到的伤害数值</td><td>1. 蓄力期间免疫控制（霸体）<br>2. 受到的伤害减少25%<br>3. 蓄力被打断返还40%冷却时间</td><td></td><td></td><td></td></tr><tr><td>LX-FUNC-003</td><td>光信形态</td><td>光信二技能后撤步与方向调整机制</td><td>1. 李信光信形态<br>2. 训练营</td><td>1. 释放二技能第一道剑气<br>2. 在剑气间隙快速调整技能轮盘方向<br>3. 连续释放四道剑气，尝试向后/侧方调整</td><td>1. 二技能释放期间可通过轮盘调整面向<br>2. 正确操作可实现"后撤步"（边打边退）<br>3. 每次踏步距离固定，不可穿墙</td><td></td><td></td><td></td></tr><tr><td>LX-FUNC-004</td><td>光信形态</td><td>光信三技能多道剑气伤害衰减机制</td><td>1. 李信光信形态<br>2. 训练营放置多个并排人偶</td><td>1. 贴脸释放三技能（三道剑气全中同目标）<br>2. 记录总伤害值<br>3. 调整角度让三道剑气分别命中不同目标<br>4. 对比伤害</td><td>1. 贴脸时三道剑气命中同一目标，从第二道开始只造成30%伤害<br>2. 三剑气全中贴脸爆发极高，但机制符合预期</td><td></td><td></td><td></td></tr><tr><td>LX-FUNC-005</td><td>光信形态</td><td>光信一技能衔接闪现的距离与伤害</td><td>1. 李信光信形态<br>2. 携带闪现技能</td><td>1. 蓄力一技能<br>2. 在位移即将落地前释放闪现<br>3. 记录突进总距离<br>4. 测试是否可穿墙</td><td>1. 一闪可增加突进距离，实现超远位移<br>2. 伤害在蓄力位置判定，闪不改变伤害判定点<br>3. 可用于收割残血敌人</td><td></td><td></td><td></td></tr><tr><td>LX-FUNC-006</td><td>光信形态</td><td>光信常用连招稳定性验证</td><td>1. 李信光信形态<br>2. 训练营</td><td>1. 测试连招：1技能蓄力→闪现→3技能→2技能<br>2. 测试连招：2技能→A→1技能→3技能<br>3. 重复多次，观察技能衔接是否流畅</td><td>1. 技能连招衔接流畅，无卡顿<br>2. 技能释放顺序正确，伤害计算准确<br>3. 连招过程中无技能丢失或bug</td><td></td><td></td><td></td></tr><tr><td>LX-FUNC-007</td><td>暗信形态</td><td>暗信被动二段伤害触发机制</td><td>1. 李信暗信形态<br>2. 训练营</td><td>1. 普通攻击敌方人偶<br>2. 观察伤害数字<br>3. 装备末世，观察装备特效触发情况</td><td>1. 普攻造成两段伤害，第二段随等级成长<br>2. 两段均可触发末世等装备特效<br>3. 暗信形态增加30点移速</td><td></td><td></td><td></td></tr><tr><td>LX-FUNC-008</td><td>暗信形态</td><td>暗信一技能蓄力免控与加速机制</td><td>1. 李信暗信形态<br>2. 敌方有减速/控制技能</td><td>1. 释放一技能开始蓄力<br>2. 被敌方减速技能命中<br>3. 被敌方控制技能命中<br>4. 蓄力超过1秒后观察攻速</td><td>1. 蓄力期间免疫控制，解除自身减速<br>2. 获得持续移速和生命回复<br>3. 蓄力超1秒后提升40%攻速持续3秒</td><td></td><td></td><td></td></tr><tr><td>LX-FUNC-009</td><td>暗信形态</td><td>暗信二技能伤害与回复机制</td><td>1. 李信暗信形态<br>2. 训练营</td><td>1. 释放二技能命中敌方人偶<br>2. 观察伤害和生命回复<br>3. 测试技能命中多个目标时的回复效果</td><td>1. 二技能造成物理伤害并回复生命值<br>2. 命中多个目标时回复量增加<br>3. 回复量与技能等级和攻击力相关</td><td></td><td></td><td></td></tr><tr><td>LX-FUNC-010</td><td>暗信形态</td><td>暗信三技能击飞范围与延迟</td><td>1. 李信暗信形态<br>2. 训练营</td><td>1. 释放三技能<br>2. 记录从释放到击飞的延迟时间<br>3. 测试技能指示器边缘命中判定</td><td>1. 延迟约1秒后造成范围击飞<br>2. 实际范围略大于指示器<br>3. 击飞时间0.75秒</td><td></td><td></td><td></td></tr><tr><td>LX-FUNC-011</td><td>暗信形态</td><td>暗信持续作战能力验证</td><td>1. 李信暗信形态<br>2. 训练营</td><td>1. 与多个敌方人偶持续作战<br>2. 观察生命回复和移速效果<br>3. 测试技能冷却和连招流畅度</td><td>1. 暗信在持续作战中能保持生命值稳定<br>2. 移速优势明显，便于追击和逃脱<br>3. 技能冷却合理，连招流畅</td><td></td><td></td><td></td></tr><tr><td>LX-FUNC-012</td><td>形态切换</td><td>光信暗信相互切换的完整性</td><td>1. 李信4级后<br>2. 分别测试两种形态切换</td><td>1. 光信状态下使用四技能切暗信<br>2. 暗信状态下使用四技能切光信<br>3. 切换过程中尝试移动/被控制</td><td>1. 切换过程持续约3秒，期间可移动<br>2. 切换过程无法被控制技能打断<br>3. 切换后技能组完全替换</td><td></td><td></td><td></td></tr><tr><td>LX-FUNC-013</td><td>形态切换</td><td>切换后的状态继承验证</td><td>1. 李信拥有两种形态<br>2. 训练营</td><td>1. 光信形态下使用一技能蓄力后立即切暗信<br>2. 暗信形态下受伤后切光信<br>3. 观察血量、技能冷却</td><td>1. 切换后血量保持不变<br>2. 技能冷却独立计算，不继承<br>3. 切换过程中的状态效果会被保留</td><td></td><td></td><td></td></tr><tr><td>LX-FUNC-014</td><td>形态切换</td><td>形态切换时机与场景适应性</td><td>1. 李信4级后<br>2. 不同战斗场景</td><td>1. 在团战中测试形态切换<br>2. 在追击敌人时测试形态切换<br>3. 在被追击时测试形态切换</td><td>1. 形态切换在各种场景下均可正常执行<br>2. 切换时机合理，能适应不同战斗需求<br>3. 切换过程中角色状态稳定</td><td></td><td></td><td></td></tr><tr><td>LX-MODEL-001</td><td>人物建模</td><td>李信模型细节与纹理验证</td><td>1. 选择李信，进入游戏<br>2. 不同皮肤</td><td>1. 观察模型细节（皮肤纹理、装备模型等）<br>2. 测试不同皮肤的模型表现<br>3. 观察模型在不同角度下的显示效果</td><td>1. 模型细节清晰，纹理无模糊<br>2. 不同皮肤模型表现正常<br>3. 模型在各种角度下显示完整</td><td></td><td></td><td></td></tr><tr><td>LX-ANIM-001</td><td>动画测试</td><td>李信技能动画流畅度验证</td><td>1. 选择李信，切换到光信形态<br>2. 切换到暗信形态</td><td>1. 释放各技能，观察动画流畅度<br>2. 测试技能连招的动画衔接</td><td>1. 技能动画流畅，无卡顿<br>2. 动画与技能效果同步<br>3. 连招动画衔接自然</td><td></td><td></td><td></td></tr><tr><td>LX-ANIM-002</td><td>动画测试</td><td>李信移动与攻击动画测试</td><td>1. 选择李信，不同形态</td><td>1. 测试不同形态下的移动动画<br>2. 测试普通攻击动画<br>3. 测试技能释放时的动画效果<br>4. 观察动画与音效的同步性</td><td>1. 移动动画流畅，符合角色特性<br>2. 攻击动画有力，反馈明确<br>3. 动画与音效同步良好</td><td></td><td></td><td></td></tr><tr><td>LX-AUDIO-001</td><td>语音与音效</td><td>李信语音台词完整性验证</td><td>1. 选择李信，进入游戏<br>2. 不同形态</td><td>1. 测试不同形态下的语音台词<br>2. 测试技能释放时的语音<br>3. 测试击杀、被击杀时的语音</td><td>1. 语音台词完整，无缺失<br>2. 不同形态下语音风格符合角色设定<br>3. 语音播放时机正确</td><td></td><td></td><td></td></tr><tr><td>LX-AUDIO-002</td><td>语音与音效</td><td>李信技能音效验证</td><td>1. 选择李信，切换到光信形态<br>2. 切换到暗信形态</td><td>1. 测试各技能的音效<br>2. 测试技能连招时的音效衔接</td><td>1. 技能音效清晰，符合技能特性<br>2. 光信和暗信音效风格区分明显<br>3. 音效与技能动画同步</td><td></td><td></td><td></td></tr><tr><td>LX-VISUAL-001</td><td>技能特效</td><td>光信技能特效表现验证</td><td>1. 选择李信，切换到光信形态<br>2. 不同皮肤</td><td>1. 释放各技能，观察特效表现<br>2. 测试不同皮肤的特效差异<br>3. 观察特效在不同场景下的显示效果</td><td>1. 技能特效华丽，符合光信的光明主题<br>2. 特效与技能范围匹配<br>3. 不同皮肤特效表现正常</td><td></td><td></td><td></td></tr><tr><td>LX-VISUAL-002</td><td>技能特效</td><td>暗信技能特效表现验证</td><td>1. 选择李信，切换到暗信形态<br>2. 不同皮肤</td><td>1. 释放各技能，观察特效表现<br>2. 测试不同皮肤的特效差异<br>3. 观察特效在不同场景下的显示效果</td><td>1. 技能特效符合暗信的黑暗主题<br>2. 特效与技能范围匹配<br>3. 不同皮肤特效表现正常</td><td></td><td></td><td></td></tr><tr><td>LX-VISUAL-003</td><td>技能特效</td><td>形态切换特效验证</td><td>1. 选择李信，达到4级</td><td>1. 测试光信切换到暗信的特效<br>2. 测试暗信切换到光信的特效<br>3. 观察特效的流畅度和视觉效果</td><td>1. 形态切换特效流畅，视觉效果震撼<br>2. 特效符合两种形态的主题差异<br>3. 特效播放完整，无卡顿</td><td></td><td></td><td></td></tr><tr><td>LX-DEATH-001</td><td>死亡场景</td><td>李信死亡动画验证</td><td>1. 选择李信，进入游戏<br>2. 不同形态</td><td>1. 测试光信形态下的死亡动画<br>2. 测试暗信形态下的死亡动画<br>3. 观察死亡动画的流畅度</td><td>1. 死亡动画流畅，符合角色特性<br>2. 不同形态下死亡动画可能有差异<br>3. 动画播放完整，无卡顿</td><td></td><td></td><td></td></tr><tr><td>LX-DEATH-002</td><td>死亡场景</td><td>李信死亡后状态验证</td><td>1. 选择李信，进入游戏<br>2. 不同形态</td><td>1. 在光信形态下被击杀<br>2. 复活后观察形态状态<br>3. 在暗信形态下被击杀，重复测试</td><td>1. 死亡后复活保持死亡前的形态<br>2. 技能冷却重置<br>3. 状态效果正确清除</td><td></td><td></td><td></td></tr><tr><td>LX-BUG-001</td><td>历史Bug</td><td>光信无限技能Bug复现测试</td><td>1. 选择李信，切换到光信形态</td><td>1. 尝试触发历史无限技能Bug（如特定连招或装备组合）<br>2. 观察技能冷却是否异常<br>3. 测试多次，确认Bug是否修复</td><td>1. 技能冷却正常，无无限技能现象<br>2. 连招执行后技能冷却正确计算<br>3. Bug已修复</td><td></td><td></td><td></td></tr><tr><td>LX-BUG-002</td><td>历史Bug</td><td>光信强普空刀Bug复现测试</td><td>1. 选择李信，切换到光信形态</td><td>1. 尝试触发强普空刀Bug（如特定时机释放强化普攻）<br>2. 观察强化普攻是否命中<br>3. 测试多次，确认Bug是否修复</td><td>1. 强化普攻正常命中，无空刀现象<br>2. 技能命中判定正确<br>3. Bug已修复</td><td></td><td></td><td></td></tr><tr><td>LX-BUG-003</td><td>历史Bug</td><td>光信后撤步异常Bug复现测试</td><td>1. 选择李信，切换到光信形态</td><td>1. 尝试触发后撤步异常Bug（如特定方向或时机）<br>2. 观察后撤步是否正常<br>3. 测试多次，确认Bug是否修复</td><td>1. 后撤步操作正常，无异常位移<br>2. 方向调整准确<br>3. Bug已修复</td><td></td><td></td><td></td></tr><tr><td>LX-BUG-004</td><td>历史Bug</td><td>形态切换Bug复现测试</td><td>1. 选择李信，达到4级</td><td>1. 尝试在各种场景下切换形态<br>2. 观察切换过程是否异常<br>3. 测试切换后的技能状态</td><td>1. 形态切换过程正常，无异常<br>2. 切换后技能组正确替换<br>3. Bug已修复</td><td></td><td></td><td></td></tr><tr><td>LX-ENV-001</td><td>环境适应性</td><td>李信在不同地图的表现</td><td>1. 选择李信，不同地图</td><td>1. 测试在召唤师峡谷的表现<br>2. 测试在深渊大乱斗的表现<br>3. 测试在王者峡谷的表现<br>4. 观察技能在不同地图的适应性</td><td>1. 李信在各种地图中表现正常<br>2. 技能范围和效果适应不同地图<br>3. 无地图特定Bug</td><td></td><td></td><td></td></tr><tr><td>LX-ENV-002</td><td>环境适应性</td><td>李信在不同天气效果下的表现</td><td>1. 选择李信，进入游戏<br>2. 不同天气效果</td><td>1. 测试在不同天气效果下的表现（如雨天、雪天等）<br>2. 观察技能特效和模型显示<br>3. 测试技能功能是否正常</td><td>1. 技能特效在不同天气下显示正常<br>2. 模型细节清晰可见<br>3. 技能功能不受天气影响</td><td></td><td></td><td></td></tr><tr><td>LX-EQUIP-001</td><td>装备与铭文</td><td>李信装备搭配效果验证</td><td>1. 选择李信，不同形态<br>2. 不同装备搭配</td><td>1. 测试光信形态的装备搭配<br>2. 测试暗信形态的装备搭配<br>3. 观察装备特效与技能的交互<br>4. 测试不同装备组合的效果</td><td>1. 装备效果与技能正常交互<br>2. 不同形态的装备搭配效果符合预期<br>3. 无装备相关Bug</td><td></td><td></td><td></td></tr><tr><td>LX-RUNE-001</td><td>装备与铭文</td><td>李信铭文搭配效果验证</td><td>1. 选择李信，不同形态<br>2. 不同铭文搭配</td><td>1. 测试光信形态的铭文搭配<br>2. 测试暗信形态的铭文搭配<br>3. 观察铭文效果与技能的交互<br>4. 测试不同铭文组合的效果</td><td>1. 铭文效果与技能正常交互<br>2. 不同形态的铭文搭配效果符合预期<br>3. 无铭文相关Bug</td><td></td><td></td><td></td></tr></tbody>
+        </table></body>
+</html>
